@@ -1,0 +1,17 @@
+Another example is the Args class,
+    developed in the TestArgs Eclipse project.
+This program requires more than one command line argument.
+
+    Click on Run -> Run (not Run Last Launched).
+
+    Click on the Arguments tab,
+        in the large subwindow of the Run window.
+    This action brings up the Program arguments window,
+        where you should type in your input values.
+
+    For the Args program,
+        eight input argument values are needed.
+    For this run, we have chosen eight random sets of
+            characters, some numeric, some alphabetic, as input values:
+        namely, 101, Joe, Larry, 93214, 3.145, 66, ABCDEF, xxxxx.
+    Notice that there is at least one space between every two arguments. 

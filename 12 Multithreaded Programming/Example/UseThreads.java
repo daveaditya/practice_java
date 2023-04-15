@@ -1,0 +1,66 @@
+// Create a thread by implementing Runnable.
+
+class MyThread implements Runnable {
+	String thrdName;
+	
+	MyThread(String name) {
+		thrdName = name;
+	}
+	
+	public void run() {
+		// TODO Auto-generated method stub
+		System.out.println(thrdName + " starting.");
+		try {
+			for(int count = 0;count < 10;count++) {
+				Thread.sleep(400);
+				System.out.println("In " + thrdName + " , count is " + count); 
+			}
+		}
+		catch (InterruptedException exc) {
+			System.out.println(thrdName + " interrupted.");
+		}
+		System.out.println(thrdName + " terminating.");
+	}
+	
+}
+
+class UseThreads {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Main thread starting.");
+		
+		MyThread mt = new MyThread("Child #1");
+		
+		Thread newThrd = new Thread(mt);
+		
+		newThrd.start();
+		
+		for(int i=0;i<50;i++) {
+			System.out.print("h");
+			try {
+				Thread.sleep(100);
+			}
+			catch (InterruptedException exc) {
+				System.out.println("Main thread ending.");
+			}
+		}
+		
+		MyThread mtn = new MyThread("Child #2");
+		
+		Thread newThrdn = new Thread(mtn);
+		
+		newThrdn.start();
+		
+		for(int i=0;i<50;i++) {
+			System.out.print("m");
+			try {
+				Thread.sleep(100);
+			}
+			catch (InterruptedException exc) {
+				System.out.println("Main thread ending.");
+			}
+		}
+	}
+
+}

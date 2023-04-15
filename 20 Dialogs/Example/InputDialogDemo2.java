@@ -1,0 +1,58 @@
+// A simple input dialog.
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+class InputDialogDemo2 {
+
+	JLabel jlab;
+	JButton jbtnShow;
+	JFrame jfrm;
+	
+	InputDialogDemo2() {
+		
+		jfrm = new JFrame("A Simple Input Dialog");
+		jfrm.setLayout(new FlowLayout());
+		jfrm.setSize(400,250);
+		jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		jlab = new JLabel();
+		jbtnShow = new JButton("Show Dialog");
+		
+		jbtnShow.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				String[] names = {
+					"Tom Jones", "Bob Smith", "Mary Doe", "Nancy Oliver"	
+				};
+				
+				String response = (String) JOptionPane.showInputDialog(jfrm,"Choose User","Select User Name",JOptionPane.QUESTION_MESSAGE,null,names,"Bob Smith");
+				
+				if(response == null) {
+					jlab.setText("Dialog cancelled or closed");
+				}
+				else if (response.length() == 0) {
+					jlab.setText("No string entered");
+				}
+				else {
+					jlab.setText("Hi there " + response);
+				}
+			}
+		});
+		
+		jfrm.add(jbtnShow);
+		jfrm.add(jlab);
+		
+		jfrm.setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				new InputDialogDemo2();
+			}
+		});
+	}
+
+}
